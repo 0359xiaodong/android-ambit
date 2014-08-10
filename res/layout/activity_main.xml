@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardRootSV" >
+
+    <LinearLayout style="@style/CardRootLL" >
+
+        <LinearLayout style="@style/CardBodyLL" >
+
+            <TextView
+                android:text="Actions"
+                style="@style/CardTitle" />
+
+            <View style="@style/CardHR" />
+
+            <Button
+                android:id="@+id/btnTest"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvInfo"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Get HID Info" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/CardBodyLL" >
+
+            <TextView
+                android:text="Info"
+                style="@style/CardTitle" />
+
+            <View style="@style/CardHR" />
+
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/hello_world" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
