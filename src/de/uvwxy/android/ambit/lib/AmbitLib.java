@@ -67,4 +67,5 @@ public class AmbitLib {
         mCtx.registerReceiver(mUsbReceiver, filter);
         mUsbManager.requestPermission(device, mPermissionIntent);
     }
+
 }
