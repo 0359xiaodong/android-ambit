@@ -23,3 +23,8 @@ This project depends on melogsta and android-cardui (in my repos)
 ## Thnx
 
 Thnx will have to go to https://github.com/openambitproject/openambit, as soon as this works ;)
+
+
+## Screens
+
+![Step1: permission granted](/screens/permission_granted.png?raw=true "Step1: Permission granted")
