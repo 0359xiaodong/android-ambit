@@ -1,4 +1,5 @@
-package de.uvwxy.android.ambit.lib;
+package de.uvwxy.ambit.lib;
+
 
 public enum AmbitCmd {
     

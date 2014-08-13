@@ -1,7 +1,6 @@
 package de.uvwxy.android.ambit.fragments;
 
 import android.content.Context;
-import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,9 +9,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import de.uvwxy.ambit.lib.AmbitDevice;
+import de.uvwxy.ambit.lib.AmbitType;
 import de.uvwxy.android.ambit.R;
-import de.uvwxy.android.ambit.lib.AmbitLib;
-import de.uvwxy.android.ambit.lib.HIDConnection;
+import de.uvwxy.android.ambit.lib.AmbitAndroid;
+import de.uvwxy.android.ambit.lib.AmbitAndroid.AmbitAndroidPermission;
+import de.uvwxy.melogsta.Log;
 
 public class FragmentMain extends Fragment {
     public static final String TAG = "Android Ambit FragmentMain";
@@ -20,22 +22,29 @@ public class FragmentMain extends Fragment {
 
     private Button mBtnTest = null;
     private TextView tvInfo = null;
+
+    private AmbitAndroidPermission aap = new AmbitAndroidPermission() {
+
+        @Override
+        public void granted(AmbitDevice d) {
+            Log.d(TAG, "got device " + d);
+            d.open();
+        }
+
+        @Override
+        public void denied() {
+
+        }
+    };
+
     private OnClickListener mStartTestListener = new OnClickListener() {
 
         @Override
         public void onClick(View v) {
-            AmbitLib ambit = new AmbitLib(mCtx);
+            AmbitAndroid ambit = new AmbitAndroid(mCtx, aap);
+            ambit.find(AmbitType.AMBIT_2.vid(), AmbitType.AMBIT_2.pid());
 
-            UsbDevice d = ambit.findFirstAmbit2();
-            if (d != null) {
-                tvInfo.setText("Found Ambit 2 Watch!");
-                tvInfo.setText("Requesting permission");
-                ambit.requestPermission(d);
-            } else {
-                tvInfo.setText("Ambit 2 Watch not found!");
-
-            }
-
+            tvInfo.setText("Scanning for device");
         }
     };
 
