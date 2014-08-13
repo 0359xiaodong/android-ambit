@@ -5,9 +5,12 @@ The goal of this repo is to provide a tool to communicate with an
 Ambit(ambitlib) based Suunto Watch.
 
 ### Current status:
+2014/08/11:
 - Detect a hardcoded device and request permission
 - System launches App when device is connected
 - as access is granted by the system we "only" have to talk with the watch -> openambit shows how to do this
+2014/08/13:
+- Open device = success
 
 ### TODO:
 - cleanup&update readme

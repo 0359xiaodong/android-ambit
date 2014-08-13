@@ -28,7 +28,8 @@ public class FragmentMain extends Fragment {
         @Override
         public void granted(AmbitDevice d) {
             Log.d(TAG, "got device " + d);
-            d.open();
+            boolean success = d.open();
+            Log.d(TAG, "device opende: " + success);
         }
 
         @Override
